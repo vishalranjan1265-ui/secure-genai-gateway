@@ -1,0 +1,32 @@
+name: "Continuous Integration Platform Quality Suite"
+
+on:
+  push:
+    branches: [ "main", "develop" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  lint-and-test:
+    name: "Perform Linting & Regression Suite Assertions"
+    runs-on: "ubuntu-latest"
+    
+    steps:
+      - name: "Clone Source Code Repository Footprint"
+        uses: "actions/checkout@v4"
+
+      - name: "Initialize Python Functional Environments"
+        uses: "actions/setup-python@v5"
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: "Resolve Dependencies Mapping"
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest flake8 -r requirements.txt
+
+      - name: "Execute Framework Rules Verification and Unit Assertions"
+        run: |
+          export PYTHONPATH="${PYTHONPATH}:$(pwd)/src"
+          python -m pytest tests/

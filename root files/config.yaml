@@ -1,0 +1,25 @@
+global:
+  environment: "production"
+  log_level: "INFO"
+  server_port: 8080
+  server_host: "0.0.0.0"
+
+security:
+  api_key_header: "X-Gateway-API-Key"
+  enable_pii_scrubbing: true
+  enable_injection_protection: true
+  encryption_algorithm: "AES-256-GCM"
+
+filters:
+  blocked_keywords:
+    - "ignore previous instructions"
+    - "system bypass"
+    - "reveal internal prompt"
+  pii_patterns:
+    ssn: '^\\d{3}-\\d{2}-\\d{4}$'
+    email: '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$'
+
+provider:
+  target_engine: "aws-bedrock"
+  default_model_id: "anthropic.claude-3-5-sonnet-20260229-v1:0"
+  timeout_seconds: 30

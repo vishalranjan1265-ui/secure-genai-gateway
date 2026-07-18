@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  secure-gateway:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./reports:/workspace/reports
+      - ./logs:/workspace/logs
+      - ~/.aws:/home/gateway-user/.aws:ro
+    environment:
+      - GATEWAY_ENCRYPTION_KEY=${GATEWAY_ENCRYPTION_KEY:-d3NlY3JldGtleWZvcmFlczI1NmdjbWVuY3J5cHRpb24=}
+      - AWS_PROFILE=${AWS_PROFILE:-default}
+    restart: unless-stopped
