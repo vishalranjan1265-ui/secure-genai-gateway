@@ -219,7 +219,7 @@ This supports organizational requirements associated with frameworks and regulat
 
 ---
 
-🏗️ High-Level Architecture
+## 🏗️ High-Level Architecture
 
                          ┌───────────────────┐
                          │      Users        │
@@ -260,7 +260,7 @@ This supports organizational requirements associated with frameworks and regulat
 
 ---
 
-🔐 Security Model
+## 🔐 Security Model
 
 The gateway follows a layered security approach:
 
@@ -301,7 +301,7 @@ The gateway follows a layered security approach:
 
 ---
 
-🚨 Problems Solved
+## 🚨 Problems Solved
 
 Problem| Gateway Capability
 Sensitive data leakage| PII/PHI detection and redaction
