@@ -411,7 +411,7 @@ Possible components:
 
 ---
 
-📁 Project Structure
+## 📁 Project Structure
 
 secure-genai-gateway/
 │
@@ -439,7 +439,7 @@ secure-genai-gateway/
 
 ---
 
-🔮 Future Improvements
+## 🔮 Future Improvements
 
 Potential future capabilities include:
 
